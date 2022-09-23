@@ -25,7 +25,7 @@ export const Vowel = () => {
     return (
         <>
             <div className="img-container">
-                <img src={`./images/vowel-${currentVowel}.jpg`} />
+                <img src={`./images/vowel-${currentVowel}.jpg`} width={"150rem"} />
             </div>
             <br />
             <button onClick={handleNextVowel}>Next</button>
