@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,6 +42,8 @@
   color: #888;
 }
 
-.img-container {
-  height: 10rem;
+.question {
+  height: 20rem;
+  font-size: 20rem;
+  font-family: 'Dancing Script', cursive;
 }

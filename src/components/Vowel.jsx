@@ -1,33 +1,37 @@
 import React from "react";
-import { getRandomInt } from "../helpers/getRandomInt";
+import { shuffleArray } from "../helpers/shuffle";
 import { useEffect } from "react";
 import { useState } from "react";
 
 export const Vowel = () => {
 
-    const setVowels = ["a", "e", "i", "o", "u"];
-
-    const [currentVowel, setCurrentVowel] = useState("");
-
-    const updateCurrentVowel = () => {
-        const randomInt = getRandomInt(0, 4);
-        setCurrentVowel(setVowels[randomInt]);
-    }
+    const [vowelList, setVowelList] = useState([]);
+    const [vowelIndex, setVowelIndex] = useState(0);
 
     useEffect(() => {
-        updateCurrentVowel();
+
+        const vowelData = shuffleArray([
+            "a", "e", "i", "o", "u",
+            "aa", "ae", "ai", "ao", "au",
+            "ea", "ee", "ei", "eo", "eu",
+            "ia", "ie", "ii", "io", "iu",
+            "oa", "oe", "oi", "oo", "ou",
+            "ua", "ue", "ui", "uo", "uu",
+        ]);
+
+        setVowelList(vowelData);
+
     }, []);
 
     const handleNextVowel = () => {
-        updateCurrentVowel();
+        setVowelIndex(x => (x == vowelList.length - 1 ? 0 : x + 1));
     }
 
     return (
         <>
-            <div className="img-container">
-                <img src={`./images/vowel-${currentVowel}.jpg`} width={"150rem"} />
+            <div className="question">
+                {vowelList[vowelIndex]}
             </div>
-            <br />
             <button onClick={handleNextVowel}>Next</button>
         </>
     )
